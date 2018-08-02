@@ -8,7 +8,7 @@ Simple command line to search github.
 To install git search you can use `pip` with the following command;
 
 ```shell
-pip3 install gitsearch
+pip3 install gitsearch-cli
 ```
 
 ## Usage
@@ -55,3 +55,7 @@ This will give the following result;
 |:--------------|:--------|:----------------------------------------|
 | spark         | apache  | https://github.com/apache/spark         |
 | spark-website | apache  | https://github.com/apache/spark-website |
+
+## TODO
+- [ ] Add date based options for search criteria
+- [ ] Refactor the code to be more pythonic

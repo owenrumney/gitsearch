@@ -1,10 +1,10 @@
 from builtins import str, super
 
 
-def create_git_object(type, object_data):
-    if type == 'users':
+def create_git_object(object_type, object_data):
+    if object_type == 'users':
         return GitUser(object_data)
-    elif type == 'repositories':
+    elif object_type == 'repositories':
         return GitRepo(object_data)
 
 
@@ -13,8 +13,8 @@ class GitObject:
         self.id = object_data.get('id')
         self.url = object_data.get('html_url')
 
-    def get(self, property):
-        return self.__dict__.get(property)
+    def get(self, attribute):
+        return self.__dict__.get(attribute)
 
     def __repr__(self):
         return str(self.__dict__)

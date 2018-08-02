@@ -11,4 +11,5 @@ def display_table(data, headers):
             view_item.append(item.get(header))
         view_data.append(view_item)
 
+    print("")
     print(tabulate.tabulate(view_data, headers, tablefmt='orgtbl'))

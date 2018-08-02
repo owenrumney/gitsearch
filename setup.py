@@ -4,8 +4,8 @@ with open("readme.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name='gitsearch',
-    version='0.0.1',
+    name='gitsearch-cli',
+    version='v0.1',
     packages=['gitsearch'],
     url='',
     license='',
