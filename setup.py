@@ -5,7 +5,7 @@ with open("readme.md", "r") as fh:
 
 setup(
     name='gitsearch-cli',
-    version='v0.1',
+    version='v0.2',
     packages=['gitsearch'],
     url='',
     license='',
