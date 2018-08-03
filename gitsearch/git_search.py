@@ -15,14 +15,18 @@ def display_results(results, scope):
 def execute_search(config, query):
     query_string = create_query_string(config, query)
     request_url = base_url % (config.scope, "+".join(query_string))
-
     r = requests.get(request_url)
-    if r.status_code == 200:
-        data = r.json()
-        results = []
-        for item in data['items']:
-            results.append(git_entities.create_git_object(config.scope, item))
-        display_results(results, config.scope)
+    process_result(config, r)
+
+
+def process_result(config, r):
+    if r.status_code != 200:
+        print("")
+    data = r.json()
+    results = []
+    for item in data.get('items'):
+        results.append(git_entities.create_git_object(config.scope, item))
+    display_results(results, config.scope)
 
 
 def create_query_string(config, query):
