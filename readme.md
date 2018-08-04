@@ -56,6 +56,18 @@ This will give the following result;
 | spark         | apache  | https://github.com/apache/spark         |
 | spark-website | apache  | https://github.com/apache/spark-website |
 
+### Date based criteria
+You can search for repositories based on created or updated dates using natural date periods, all of the below examples are acceptable (not limited to this). If you use a date period that isn't acceptable, the search will use the beginning of time (1979-30-10)
+
+```shell
+git-search -l=scala --updated="last week" # return 30 scala projects updated in the last week
+
+git-search -l=python --created="yesterday" # return 30 scala projects created yesterday
+
+git-search gitsearch -l=python --created "3 days ago"  # return 30 scala projects created yesterday
+```
+
 ## TODO
-- [ ] Add date based options for search criteria
+- [X] Add date based options for search criteria
+- [ ] Add tests
 - [ ] Refactor the code to be more pythonic

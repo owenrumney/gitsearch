@@ -1,5 +1,7 @@
 import requests
+import parsedatetime as pdt
 
+from datetime import datetime
 from gitsearch import git_entities
 from gitsearch.output import display_table
 
@@ -29,6 +31,16 @@ def process_result(config, r):
     display_results(results, config.scope)
 
 
+def get_real_date(natural_date):
+    now = datetime.now()
+    cal = pdt.Calendar()
+    result, success = cal.parseDT(natural_date, now)
+    if success == 1:
+        return result.strftime("%Y-%m-%d")
+    print("Couldn't parse the date: %s. Using default of the beginning of time (1979)" % natural_date)
+    return "1979-10-30"
+
+
 def create_query_string(config, query):
     if config.language:
         query.append("language:%s" % config.language)
@@ -38,4 +50,8 @@ def create_query_string(config, query):
         query.append("in:name")
     if config.descriptiononly:
         query.append("in:description")
+    if config.created:
+        query.append("created:>%s" % get_real_date(config.created))
+    if config.updated:
+        query.append("pushed:>%s" % get_real_date(config.updated))
     return query

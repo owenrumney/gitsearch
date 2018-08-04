@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
-
+import parsedatetime as pdt
 from gitsearch.git_search import execute_search
 
 
@@ -10,8 +10,11 @@ def main():
     parser.add_argument('--scope', help='Search in users', default='repositories', choices=['repositories', 'users'])
     parser.add_argument('-l', '--language', help='Specify the language to search for')
     parser.add_argument('-u', '--user', help='Specify the user to search for')
+    parser.add_argument('--created', help='Only search repos created in period. Eg, the last month')
+    parser.add_argument('--updated', help='Only search repos updated in period. Eg, the last month')
     parser.add_argument('--nameonly', help='Only search in the name', action='store_true', default=False)
     parser.add_argument('--descriptiononly', help='Only search in the name', action='store_true', default=False)
+
     config, query = parser.parse_known_args()
     execute_search(config, query)
 
