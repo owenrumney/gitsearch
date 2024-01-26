@@ -13,7 +13,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     author_email='owen@owenrumney.co.uk',
-    install_requires=["requests==2.20.0", "tabulate==0.8.2"],
+    install_requires=["requests==2.31.0", "tabulate==0.8.2"],
     description='Search git from the command line',
     scripts=['git-search'],
     classifiers=(
